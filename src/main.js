@@ -8,6 +8,8 @@ import MyHttpServer from '@/plugins/http.js'
 import 'element-ui/lib/theme-chalk/index.css';
 import '@/assets/css/reset.css'
 
+// import '@/mock'
+
 import router from './router'
 Vue.use(ElementUI);
 Vue.use(MyHttpServer);

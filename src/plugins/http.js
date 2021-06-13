@@ -9,5 +9,7 @@ MyHttpServer.install = (Vue) => {
     // 4. 添加实例方法
     Vue.prototype.$http = axios
 }
+// let baseURL = 'http://localhost:8888/api/private/v1';
 
+// export const register = parmas => { return axios.post(`${baseURL}/users/`, parmas) }
 export default MyHttpServer
