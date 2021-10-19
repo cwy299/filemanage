@@ -41,59 +41,38 @@
         data() {
             return {
                 formdata: {
-                    // showLogin: true,
-                    // showRegister: false,
                     username: '',
                     password: '',
-                    // newusername: '',
-                    // newpassword: ''
-
-
                 },
-
-
             }
 
         },
         methods: {
             //登录请求
-            handleLogin() {
-                // if (this.formdata.username == "" || this.formdata.password == "") {
-                //     alert("请输入用户名或密码")
-                // }
+            async handleLogin() {
 
-                this.$http.post('login', this.formdata,)
-                    .then(res => {
-                        const {
-                            data, meta: { msg, status }
-                        } = res.data
-
-
-                        if (status === 200) {
-                            this.$router.push({ name: 'home' })
-                            this.$message.success(msg);
-                            //   1、跳转
-                            // 2、提示成功
-                        }
-                        else {
-                            // 不成功
-                            //    提示消息
-                            this.$message.error(msg);
-                        }
-
-
-
-
+                const res = await this.$http.post('login', this.formdata)
+                console.log(res);
+                const {
+                    data, meta: { msg, status }
+                } = res.data
+                if (status === 200) {
+                    //保存token 
+                    localStorage.setItem('token', data.token)
+                    this.$router.push({
+                        name: 'home'
                     })
+                    this.$message.success(msg);
+                    //   1、跳转
+                    // 2、提示成功
+                }
+                else {
+                    // 不成功
+                    //    提示消息
+                    this.$message.error(msg);
+                }
+
             },
-            // ToRegister() {
-            //     this.showRegister = true
-            //     this.showLogin = false
-            // },
-            // ToLogin() {
-            //     this.showRegister = false
-            //     this.showLogin = true
-            // }
             handleregister() {
                 this.$router.replace('/register')
             },

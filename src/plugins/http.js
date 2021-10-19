@@ -11,5 +11,5 @@ MyHttpServer.install = (Vue) => {
 }
 // let baseURL = 'http://localhost:8888/api/private/v1';
 
-// export const register = parmas => { return axios.post(`${baseURL}/users/`, parmas) }
+export const register = parmas => { return axios.post(`${baseURL}/users/`, parmas) }
 export default MyHttpServer

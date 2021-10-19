@@ -1,0 +1,43 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+
+</head>
+
+<body>
+    <div id="app">
+        <input type="button" value="导入" id="fileImport" v-on:click="clickLoad"
+            style="background: green; height: 80px; width: 100px; font-size: 28px;">
+        <input type="file" id="files" ref="refFile" style="display: none" v-on:change="fileLoad">
+    </div>
+    <script src="https://cdn.bootcss.com/jquery/3.3.1/jquery.min.js"></script>
+    <script src="https://cdn.bootcss.com/vue/2.6.10/vue.min.js"></script>
+    <script>
+        var app = new Vue({
+            el: '#app',
+            data: {
+
+            },
+            methods: {
+                clickLoad() {
+
+                    this.$refs.refFile.dispatchEvent(new MouseEvent('click'))
+                },
+                fileLoad() {
+
+                    const selectedFile = this.$refs.refFile.files[0];
+
+                    var name = selectedFile.name; //选中文件的文件名
+                    var size = selectedFile.size; //选中文件的大小
+                    console.log("文件名:" + name + "大小:" + size);
+
+                }
+            }
+        })
+    </script>
+</body>
+
+</html>
