@@ -8,7 +8,7 @@
                     </div>
                 </el-col>
                 <el-col :span="18" class="middle">
-                    <h3>文件管理系统</h3>
+                    <h3>文 件 管 理 系 统 </h3>
                 </el-col>
                 <el-col :span="2">
                     <div class="grid-content bg-purple">
